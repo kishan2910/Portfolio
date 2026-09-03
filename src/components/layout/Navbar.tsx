@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, Search, X } from 'lucide-react'
-import { useCommandPalette } from '../../context/CommandPaletteContext'
+import { Menu, X } from 'lucide-react'
 import { navLinks } from '../../data/nav'
 import { profile } from '../../data/profile'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
@@ -10,7 +9,6 @@ import { ThemeToggle } from './ThemeToggle'
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const active = useScrollSpy(navLinks.map((n) => n.id))
-  const { setOpen: setPaletteOpen } = useCommandPalette()
 
   const handleNavigate = (id: string) => {
     setOpen(false)
@@ -53,14 +51,6 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setPaletteOpen(true)}
-            aria-label="Open command palette"
-            className="glass hidden h-10 items-center gap-1.5 rounded-full px-3 text-xs text-[var(--text-tertiary)] transition-transform hover:scale-105 sm:flex"
-          >
-            <Search size={13} /> <kbd className="mono-tag">⌘K</kbd>
-          </button>
           <ThemeToggle />
           <button
             type="button"
@@ -95,16 +85,6 @@ export function Navbar() {
                 {item.label}
               </button>
             ))}
-            <button
-              type="button"
-              onClick={() => {
-                setOpen(false)
-                setPaletteOpen(true)
-              }}
-              className="mono-tag rounded-2xl px-4 py-3 text-left text-sm text-[var(--text-tertiary)]"
-            >
-              ⌘K Command palette
-            </button>
           </motion.div>
         )}
       </AnimatePresence>

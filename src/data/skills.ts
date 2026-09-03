@@ -2,59 +2,27 @@ import type { SkillCategory } from '../types'
 
 export const skills: SkillCategory[] = [
   {
-    name: 'Languages & Frameworks',
-    skills: ['Python', 'SQL', 'Shell Scripting', 'TypeScript', 'JavaScript', 'React'],
+    name: 'Languages',
+    skills: ['Python', 'SQL', 'REST APIs', 'Microservices'],
   },
   {
     name: 'GenAI & Agents',
-    skills: ['RAG Pipeline', 'LangChain', 'Embeddings', 'vLLM', 'Ollama', 'Agentic AI', 'OpenAI APIs'],
-  },
-  {
-    name: 'Evaluation & Observability',
-    skills: ['MLflow', 'DeepEval (LLM-as-a-judge)', 'Prometheus', 'Grafana'],
+    skills: ['RAG', 'LangChain', 'Embeddings', 'vLLM', 'Ollama', 'Agentic AI', 'OpenAI APIs'],
   },
   {
     name: 'ML & Deep Learning',
-    skills: [
-      'PyTorch',
-      'TensorFlow',
-      'Scikit-learn',
-      'YOLO',
-      'SAM2',
-      'Computer Vision',
-      'ONNX Runtime',
-      'Model Quantization (NCNN)',
-    ],
+    skills: ['PyTorch', 'TensorFlow', 'scikit-learn', 'CNN / RNN', 'Seq2Seq', 'OCR', 'Image Segmentation'],
   },
   {
-    name: 'Vector Database & Search',
-    skills: ['Qdrant', 'ChromaDB', 'Semantic Search', 'Hybrid Search', 'BM25', 'Reranking', 'Sentence Transformers'],
+    name: 'Vector Search',
+    skills: ['Qdrant', 'ChromaDB', 'Hybrid Search', 'BM25', 'Reranking', 'Sentence Transformers'],
   },
   {
-    name: 'Backend',
-    skills: [
-      'Node.js',
-      'FastAPI',
-      'REST APIs',
-      'Microservices',
-      'Distributed Systems',
-      'Event-Driven Architecture',
-      'Apache Kafka',
-    ],
+    name: 'Evaluation & Observability',
+    skills: ['MLflow', 'DeepEval (LLM-as-judge)', 'Prometheus', 'Grafana'],
   },
   {
-    name: 'Cloud, MLOps & Deployment',
-    skills: [
-      'Kubernetes',
-      'Docker',
-      'Helm Charts',
-      'GitLab CI/CD',
-      'Terraform',
-      'AWS SageMaker',
-      'AWS S3',
-      'AWS ECS',
-      'AWS EKS',
-      'AWS Bedrock',
-    ],
+    name: 'Cloud & MLOps',
+    skills: ['AWS (SageMaker, S3, ECS/EKS, Bedrock)', 'Kubernetes', 'Docker', 'GitLab CI/CD', 'Git'],
   },
 ]

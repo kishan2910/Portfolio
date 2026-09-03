@@ -8,7 +8,7 @@ export function Work() {
       <SectionHeading
         eyebrow="The Journey"
         title="From mechanical drafting to production AI"
-        description="Eight years of building — including hands-on AI delivery for SMEs and public bodies across Schleswig-Holstein. Each stop, what I shipped, and who it was for."
+        description="Each stop, what I shipped, and who it was for."
       />
 
       <div>

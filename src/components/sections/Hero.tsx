@@ -24,8 +24,11 @@ export function Hero() {
             </span>
           </div>
 
-          <h1 className="mt-6 text-4xl font-semibold leading-[1.05] sm:text-5xl lg:text-6xl">
-            {profile.name}
+          <h1 className="mt-6 text-5xl font-normal leading-[1.02] tracking-[-0.02em] sm:text-6xl lg:text-7xl">
+            {profile.name.split(' ')[0]}{' '}
+            <span className="font-display-italic text-gradient">
+              {profile.name.split(' ').slice(1).join(' ')}
+            </span>
           </h1>
 
           <ul className="mx-auto mt-6 flex max-w-xl flex-col gap-1.5 text-base text-[var(--text-secondary)] sm:text-lg lg:mx-0">
@@ -56,7 +59,7 @@ export function Hero() {
             <button
               type="button"
               onClick={() => scrollTo('journey')}
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white shadow-[0_10px_30px_-10px_rgba(124,107,255,0.6)] bg-[linear-gradient(120deg,var(--accent-from),var(--accent-to))] transition-all hover:brightness-110 active:scale-[0.98]"
+              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-[#1c1a15] shadow-[0_10px_30px_-12px_rgba(230,180,90,0.55)] bg-[linear-gradient(120deg,var(--accent-from),var(--accent-to))] transition-all hover:brightness-105 active:scale-[0.98]"
             >
               View my work <ArrowRight size={15} />
             </button>

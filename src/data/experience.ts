@@ -2,8 +2,8 @@ import type { ExperienceEntry } from '../types'
 
 export const experience: ExperienceEntry[] = [
   {
-    company: 'Künstliche Intelligenz SH · Hochschule Flensburg',
-    role: 'AI & MLOps Engineer · Scientific Research Associate',
+    company: 'KI.SH — Hochschule Flensburg',
+    role: 'AI & MLOps Engineer — Research Associate',
     location: 'Flensburg, Germany',
     period: 'Jan 2025 — Present',
     summary:
@@ -14,7 +14,7 @@ export const experience: ExperienceEntry[] = [
         client: 'Hochschule Flensburg',
         href: 'https://kuenstliche-intelligenz.sh/de/hs-flensburg',
         description:
-          'Own the on-premise GPU infrastructure the whole team builds on: deployed and operate open-source LLMs and VLMs from Hugging Face with vLLM on bare-metal Kubernetes, serving roughly 500 concurrent users at ~78 ms per output token — fully on-premise to meet GDPR data-residency rules. Hardened the inference endpoints with authentication, rate-limiting, structured logging and request tracing.',
+          'Own the on-premise GPU infrastructure the whole team builds on: deployed and operate open-source LLMs and VLMs from Hugging Face with vLLM on bare-metal Kubernetes, serving roughly 500 concurrent users at ~78 ms per output token — fully on-premise to meet GDPR data-residency rules. Hardened the inference endpoints with Keycloak authentication, structured logging and request tracing.',
         metrics: ['~500 concurrent users', '78ms TPOT', 'On-prem / GDPR'],
         tech: ['vLLM', 'Kubernetes', 'Hugging Face', 'GPU Infra', 'Observability'],
         image: '/images/projects/llm-infrastructure.jpg',
@@ -129,64 +129,26 @@ export const experience: ExperienceEntry[] = [
     },
   },
   {
-    company: 'Saleshandy',
-    role: 'Software Engineer',
-    location: 'Ahmedabad, India (remote)',
-    period: 'Jul 2022 — Dec 2024',
-    summary:
-      'Owned core SaaS features end-to-end across Node.js and React, and architected an event-driven pipeline processing millions of events a month for 25,000+ businesses.',
-    projects: [
-      {
-        title: 'Core SaaS Features at Scale',
-        description:
-          'Owned core product features end-to-end across a Node.js backend and React frontend — email health scoring, sequence pause diagnostics, a multi-tenant agency portal, and a metered email-verification credit system.',
-        metrics: ['15% lift in cold-mailing outcomes'],
-        tech: ['Node.js', 'React', 'Feature Ownership'],
-      },
-      {
-        title: 'High-Throughput Event Pipeline',
-        description:
-          'Architected asynchronous backend workflows using RabbitMQ/Kafka-style queues, decoupling ingestion, processing and delivery in the email pipeline.',
-        metrics: ['Millions of events / month'],
-        tech: ['RabbitMQ', 'Apache Kafka', 'AWS', 'Event-Driven Architecture'],
-      },
-      {
-        title: 'Multi-Tenant Security & Performance',
-        description:
-          'Implemented RBAC and fine-grained permissions across the platform, added Redis-based caching and rate-limiting, and optimized PostgreSQL data models for high-scale, multi-tenant workloads.',
-        metrics: ['25,000+ businesses supported'],
-        tech: ['RBAC', 'Redis', 'PostgreSQL', 'Multi-Tenancy'],
-      },
-    ],
-  },
-  {
-    company: 'Saleshandy',
-    role: 'Junior Software Engineer',
-    location: 'Ahmedabad, India (remote)',
+    company: 'BLUIE',
+    role: 'Junior AI Engineer',
+    location: 'Ahmedabad, India',
     period: 'Mar 2021 — Jun 2022',
     summary:
-      'Shipped backend and UI features across the subscription and deliverability modules, and set up GitHub Actions CI/CD for Node.js services.',
+      'Built high-speed computer-vision systems for pharmaceutical packaging lines — OCR and Data Matrix decoding that runs in real time.',
     projects: [
       {
-        title: 'Subscriptions & Deliverability Backend',
+        title: 'High-Speed OCR & Data Matrix Decoding for Pharma Cartons',
         description:
-          'Built backend features across subscription and deliverability modules using Node.js, contributing to deals worth up to $300K.',
-        metrics: ['Deals up to $300K'],
-        tech: ['Node.js'],
+          'Built an OCR and Data Matrix decoding system for pharmaceutical cartons, using sequence modelling to map visual input to structured text — fast enough for real-time inference (<3 ms) to meet packaging-standard compliance.',
+        metrics: ['<3 ms inference'],
+        tech: ['Sequence Modelling', 'OCR', 'Computer Vision'],
       },
       {
-        title: 'Customer-Facing UI Flows',
+        title: 'CNN OCR Pipelines for Industrial Images',
         description:
-          'Built React components and UI flows for customer-facing features — sequence status indicators, verification credit displays — collaborating closely with senior engineers.',
-        metrics: [],
-        tech: ['React'],
-      },
-      {
-        title: 'CI/CD for Node.js Services',
-        description:
-          'Set up and maintained GitHub Actions pipelines to automate build, test and deployment for Node.js services, reducing manual release effort.',
-        metrics: [],
-        tech: ['GitHub Actions', 'CI/CD'],
+          'Developed CNN-based OCR pipelines to extract text from industrial images, improving accuracy from 49% to 98%. Converted models to ONNX for cross-platform deployment and optimised with TensorRT down to 10 ms inference.',
+        metrics: ['49% → 98% accuracy', '10 ms inference'],
+        tech: ['CNN', 'ONNX', 'TensorRT'],
       },
     ],
   },

@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import '@fontsource-variable/inter';
+@import '@fontsource-variable/fraunces';
 
 /* ---------------------------------------------------------------- */
 /* Design tokens                                                     */
@@ -9,67 +10,77 @@
   --font-sans:
     -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter Variable', Inter,
     'Segoe UI', Roboto, sans-serif;
+  --font-display:
+    'Fraunces Variable', 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
   --font-mono:
     ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
 
   --ease-glass: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Cosmic night — deep space indigo, warm gold accent, starlight text */
 [data-theme='dark'] {
-  --bg-base: #08080c;
-  --bg-base-2: #0c0c14;
+  --bg-base: #05060f;
+  --bg-base-2: #0a0c1a;
 
-  --blob-1: #6d5bff;
-  --blob-2: #22c1c3;
-  --blob-3: #b23ee0;
+  --blob-1: #e6b45a;
+  --blob-2: #8b7fd6;
+  --blob-3: #3a2f6b;
 
-  --glass-surface: rgba(255, 255, 255, 0.07);
-  --glass-surface-strong: rgba(255, 255, 255, 0.11);
-  --glass-border: rgba(255, 255, 255, 0.14);
-  --glass-highlight: rgba(255, 255, 255, 0.35);
-  --glass-shadow: rgba(0, 0, 0, 0.45);
+  --star: #f4f1e8;
+  --starfield-opacity: 1;
 
-  --text-primary: #f5f5f7;
-  --text-secondary: rgba(245, 245, 247, 0.64);
-  --text-tertiary: rgba(245, 245, 247, 0.4);
+  --glass-surface: rgba(255, 255, 255, 0.04);
+  --glass-surface-strong: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-highlight: rgba(255, 255, 255, 0.14);
+  --glass-shadow: rgba(0, 0, 0, 0.55);
 
-  --accent-from: #7c6bff;
-  --accent-to: #22c1c3;
-  --accent-solid: #8f7bff;
+  --text-primary: #f4f1e8;
+  --text-secondary: rgba(244, 241, 232, 0.62);
+  --text-tertiary: rgba(244, 241, 232, 0.4);
+
+  --accent-from: #e6b45a;
+  --accent-to: #f5d98b;
+  --accent-solid: #e6b45a;
 
   --success: #4ade80;
   --danger: #f87171;
 
-  --noise-opacity: 0.045;
+  --noise-opacity: 0.05;
   color-scheme: dark;
 }
 
+/* Cosmic day — warm parchment, deep gold accent, ink text */
 [data-theme='light'] {
-  --bg-base: #f5f5f7;
-  --bg-base-2: #eceef2;
+  --bg-base: #f6f2e9;
+  --bg-base-2: #efe9db;
 
-  --blob-1: #9db4ff;
-  --blob-2: #ffb4d1;
-  --blob-3: #c9b6ff;
+  --blob-1: #d8b877;
+  --blob-2: #c7b8e6;
+  --blob-3: #e7dcc4;
 
-  --glass-surface: rgba(255, 255, 255, 0.62);
+  --star: #8a6a2f;
+  --starfield-opacity: 0.3;
+
+  --glass-surface: rgba(255, 255, 255, 0.6);
   --glass-surface-strong: rgba(255, 255, 255, 0.78);
-  --glass-border: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(28, 26, 21, 0.12);
   --glass-highlight: rgba(255, 255, 255, 0.9);
-  --glass-shadow: rgba(30, 30, 45, 0.14);
+  --glass-shadow: rgba(60, 48, 20, 0.14);
 
-  --text-primary: #121214;
-  --text-secondary: rgba(18, 18, 20, 0.66);
-  --text-tertiary: rgba(18, 18, 20, 0.44);
+  --text-primary: #1c1a15;
+  --text-secondary: rgba(28, 26, 21, 0.66);
+  --text-tertiary: rgba(28, 26, 21, 0.45);
 
-  --accent-from: #6952ff;
-  --accent-to: #0ea5a8;
-  --accent-solid: #6952ff;
+  --accent-from: #b07d18;
+  --accent-to: #d4a935;
+  --accent-solid: #a9791a;
 
   --success: #16a34a;
   --danger: #dc2626;
 
-  --noise-opacity: 0.03;
+  --noise-opacity: 0.025;
   color-scheme: light;
 }
 
@@ -114,10 +125,22 @@
   h2,
   h3,
   h4 {
-    font-weight: 600;
-    letter-spacing: -0.03em;
     color: var(--text-primary);
     margin: 0;
+  }
+
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-weight: 550;
+    letter-spacing: -0.015em;
+  }
+
+  h3,
+  h4 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
 
   p {
@@ -131,7 +154,7 @@
 
   ::selection {
     background: var(--accent-solid);
-    color: white;
+    color: #1c1a15;
   }
 
   :focus-visible {
@@ -213,6 +236,19 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    letter-spacing: -0.02em;
+  }
+
+  .font-display-italic {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    font-style: italic;
+    letter-spacing: -0.02em;
   }
 
   .noise-overlay {
