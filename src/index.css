@@ -1,0 +1,308 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+
+/* ---------------------------------------------------------------- */
+/* Design tokens                                                     */
+/* ---------------------------------------------------------------- */
+
+:root {
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter Variable', Inter,
+    'Segoe UI', Roboto, sans-serif;
+  --font-mono:
+    ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+
+  --ease-glass: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='dark'] {
+  --bg-base: #08080c;
+  --bg-base-2: #0c0c14;
+
+  --blob-1: #6d5bff;
+  --blob-2: #22c1c3;
+  --blob-3: #b23ee0;
+
+  --glass-surface: rgba(255, 255, 255, 0.07);
+  --glass-surface-strong: rgba(255, 255, 255, 0.11);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-highlight: rgba(255, 255, 255, 0.35);
+  --glass-shadow: rgba(0, 0, 0, 0.45);
+
+  --text-primary: #f5f5f7;
+  --text-secondary: rgba(245, 245, 247, 0.64);
+  --text-tertiary: rgba(245, 245, 247, 0.4);
+
+  --accent-from: #7c6bff;
+  --accent-to: #22c1c3;
+  --accent-solid: #8f7bff;
+
+  --success: #4ade80;
+  --danger: #f87171;
+
+  --noise-opacity: 0.045;
+  color-scheme: dark;
+}
+
+[data-theme='light'] {
+  --bg-base: #f5f5f7;
+  --bg-base-2: #eceef2;
+
+  --blob-1: #9db4ff;
+  --blob-2: #ffb4d1;
+  --blob-3: #c9b6ff;
+
+  --glass-surface: rgba(255, 255, 255, 0.62);
+  --glass-surface-strong: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.8);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+  --glass-shadow: rgba(30, 30, 45, 0.14);
+
+  --text-primary: #121214;
+  --text-secondary: rgba(18, 18, 20, 0.66);
+  --text-tertiary: rgba(18, 18, 20, 0.44);
+
+  --accent-from: #6952ff;
+  --accent-to: #0ea5a8;
+  --accent-solid: #6952ff;
+
+  --success: #16a34a;
+  --danger: #dc2626;
+
+  --noise-opacity: 0.03;
+  color-scheme: light;
+}
+
+/* ---------------------------------------------------------------- */
+/* Base                                                               */
+/* ---------------------------------------------------------------- */
+
+/* Layered as `base` so Tailwind utility classes (e.g. `text-[var(--danger)]`)
+   always win over these element-selector defaults — unlayered CSS beats
+   layered CSS regardless of selector specificity or source order. */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    margin: 0;
+    min-height: 100svh;
+    font-family: var(--font-sans);
+    background: var(--bg-base);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    transition:
+      background-color 0.4s var(--ease-glass),
+      color 0.4s var(--ease-glass);
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    color: var(--text-secondary);
+  }
+
+  a {
+    color: inherit;
+  }
+
+  ::selection {
+    background: var(--accent-solid);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-solid) 55%, transparent);
+    border-radius: 8px;
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/* Glass system                                                       */
+/* ---------------------------------------------------------------- */
+
+/* Layered as `components` so Tailwind utility classes (e.g. `absolute`,
+   `relative`) always win over these when both are applied to the same
+   element — unlayered CSS beats layered CSS regardless of source order. */
+@layer components {
+  .glass {
+    position: relative;
+    background: var(--glass-surface);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow:
+      0 20px 50px -20px var(--glass-shadow),
+      inset 0 1px 0 var(--glass-highlight);
+  }
+
+  .glass-strong {
+    background: var(--glass-surface-strong);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+  }
+
+  @media (max-width: 768px) {
+    .glass {
+      backdrop-filter: blur(12px) saturate(160%);
+      -webkit-backdrop-filter: blur(12px) saturate(160%);
+    }
+  }
+
+  @supports not (backdrop-filter: blur(1px)) {
+    .glass {
+      background: var(--bg-base-2);
+    }
+  }
+
+  .card-spotlight {
+    position: relative;
+  }
+
+  .card-spotlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(
+      420px circle at var(--mx, 50%) var(--my, 50%),
+      var(--glass-highlight),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-glass);
+    pointer-events: none;
+  }
+
+  .card-spotlight:hover::before {
+    opacity: 0.16;
+  }
+
+  .card-spotlight > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .text-gradient {
+    background: linear-gradient(120deg, var(--accent-from), var(--accent-to));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: var(--noise-opacity);
+    mix-blend-mode: overlay;
+    background-image: url('/noise.svg');
+    background-size: 180px 180px;
+  }
+}
+
+/* ---------------------------------------------------------------- */
+/* Scrollbar                                                          */
+/* ---------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 999px;
+}
+
+/* ---------------------------------------------------------------- */
+/* Utilities                                                          */
+/* ---------------------------------------------------------------- */
+
+@layer components {
+  .mono-tag {
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
+  }
+
+  .status-dot {
+    position: relative;
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--success);
+  }
+
+  .status-dot::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: var(--success);
+    animation: status-pulse 2.2s var(--ease-glass) infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .status-dot::after {
+      animation: none;
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes status-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@layer components {
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 12px 20px;
+    border-radius: 12px;
+  }
+
+  .skip-link:focus {
+    left: 16px;
+    top: 16px;
+  }
+}

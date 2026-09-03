@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#08080c" />
+
+    <title>Kishan Ajudiya — AI &amp; MLOps Engineer</title>
+    <meta
+      name="description"
+      content="Kishan Ajudiya — AI & MLOps Engineer building agentic RAG systems, production LLM/VLM serving, and computer vision pipelines. Portfolio of work at Hochschule Flensburg, AL-KO, Continental and Saleshandy."
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Kishan Ajudiya — AI & MLOps Engineer" />
+    <meta
+      property="og:description"
+      content="Agentic RAG systems, production LLM/VLM serving, and computer vision pipelines — portfolio and case studies."
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Kishan Ajudiya — AI & MLOps Engineer" />
+    <meta
+      name="twitter:description"
+      content="Agentic RAG systems, production LLM/VLM serving, and computer vision pipelines — portfolio and case studies."
+    />
+    <meta name="twitter:image" content="/og-image.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('portfolio-theme')
+          var theme =
+            stored === 'dark' || stored === 'light'
+              ? stored
+              : window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark'
+          document.documentElement.setAttribute('data-theme', theme)
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark')
+        }
+      })()
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
