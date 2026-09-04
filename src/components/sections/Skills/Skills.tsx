@@ -1,11 +1,13 @@
-import { skills } from '../../../data/skills'
+import { useContent } from '../../../i18n/content'
 import { RevealOnScroll } from '../../ui/RevealOnScroll'
 import { SectionHeading } from '../../ui/SectionHeading'
 
 export function Skills() {
+  const { skills, t } = useContent()
+
   return (
     <section id="skills" className="mx-auto max-w-3xl px-4 py-20 sm:px-6">
-      <SectionHeading eyebrow="Skills" title="The tools I reach for" />
+      <SectionHeading eyebrow={t('section.skills.eyebrow')} title={t('section.skills.title')} />
 
       <RevealOnScroll className="grid gap-x-10 sm:grid-cols-2">
         {skills.map((category) => (

@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Download, MapPin } from 'lucide-react'
-import { profile } from '../../data/profile'
+import { useContent } from '../../i18n/content'
 import { GithubIcon, LinkedinIcon } from '../icons/BrandIcons'
 
 export function Hero() {
+  const { profile, t } = useContent()
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
@@ -31,21 +32,21 @@ export function Hero() {
             </span>
           </h1>
 
-          <ul className="mx-auto mt-6 flex max-w-xl flex-col gap-1.5 text-base text-[var(--text-secondary)] sm:text-lg lg:mx-0">
+          <ul className="mx-auto mt-6 flex max-w-xl flex-col gap-1 text-base leading-snug text-[var(--text-secondary)] sm:text-lg lg:mx-0">
             {profile.positions.map((position) => (
               <li key={`${position.role}-${position.org}`}>
-                {position.role} at{' '}
+                {position.role} {t('hero.at')}{' '}
                 {position.href ? (
                   <a
                     href={position.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-gradient font-medium hover:underline"
+                    className="font-medium text-[var(--accent-solid)] hover:underline"
                   >
                     {position.org}
                   </a>
                 ) : (
-                  <span className="text-gradient font-medium">{position.org}</span>
+                  <span className="font-medium text-[var(--accent-solid)]">{position.org}</span>
                 )}
               </li>
             ))}
@@ -61,14 +62,14 @@ export function Hero() {
               onClick={() => scrollTo('journey')}
               className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-[#1c1a15] shadow-[0_10px_30px_-12px_rgba(230,180,90,0.55)] bg-[linear-gradient(120deg,var(--accent-from),var(--accent-to))] transition-all hover:brightness-105 active:scale-[0.98]"
             >
-              View my work <ArrowRight size={15} />
+              {t('hero.viewWork')} <ArrowRight size={15} />
             </button>
             <button
               type="button"
               onClick={() => scrollTo('contact')}
               className="glass inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-transform hover:scale-[1.02] active:scale-[0.98]"
             >
-              Get in touch
+              {t('hero.getInTouch')}
             </button>
           </div>
 
@@ -77,7 +78,7 @@ export function Hero() {
               href="https://github.com/kishan2910"
               target="_blank"
               rel="noreferrer"
-              aria-label="GitHub"
+              aria-label={t('a11y.github')}
               className="glass flex h-10 w-10 items-center justify-center rounded-full transition-transform hover:scale-105"
             >
               <GithubIcon size={16} />
@@ -86,7 +87,7 @@ export function Hero() {
               href="https://www.linkedin.com/in/kishan2910"
               target="_blank"
               rel="noreferrer"
-              aria-label="LinkedIn"
+              aria-label={t('a11y.linkedin')}
               className="glass flex h-10 w-10 items-center justify-center rounded-full transition-transform hover:scale-105"
             >
               <LinkedinIcon size={16} />
@@ -94,7 +95,7 @@ export function Hero() {
             <a
               href={profile.cvUrl}
               download
-              aria-label="Download CV"
+              aria-label={t('a11y.downloadCv')}
               className="glass flex h-10 w-10 items-center justify-center rounded-full transition-transform hover:scale-105"
             >
               <Download size={16} />

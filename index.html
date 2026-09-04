@@ -34,13 +34,10 @@
       (function () {
         try {
           var stored = localStorage.getItem('portfolio-theme')
-          var theme =
-            stored === 'dark' || stored === 'light'
-              ? stored
-              : window.matchMedia('(prefers-color-scheme: light)').matches
-                ? 'light'
-                : 'dark'
+          var theme = stored === 'dark' || stored === 'light' ? stored : 'dark'
           document.documentElement.setAttribute('data-theme', theme)
+          var lang = localStorage.getItem('portfolio-lang')
+          if (lang === 'en' || lang === 'de') document.documentElement.lang = lang
         } catch (e) {
           document.documentElement.setAttribute('data-theme', 'dark')
         }

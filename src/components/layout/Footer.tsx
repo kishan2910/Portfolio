@@ -1,10 +1,11 @@
 import { Mail, ArrowUp } from 'lucide-react'
-import { profile } from '../../data/profile'
+import { useContent } from '../../i18n/content'
 import { GithubIcon, LinkedinIcon } from '../icons/BrandIcons'
 
 const ICONS = { github: GithubIcon, linkedin: LinkedinIcon, mail: Mail, phone: Mail }
 
 export function Footer() {
+  const { profile, t } = useContent()
   const year = new Date().getFullYear()
 
   return (
@@ -13,7 +14,7 @@ export function Footer() {
         <div>
           <p className="text-sm font-semibold text-[var(--text-primary)]">{profile.name}</p>
           <p className="mt-1 text-xs text-[var(--text-tertiary)]">
-            © {year} — Built with love.
+            © {year} — {t('footer.built')}
           </p>
         </div>
 
@@ -39,7 +40,7 @@ export function Footer() {
               e.preventDefault()
               document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })
             }}
-            aria-label="Back to top"
+            aria-label={t('a11y.backToTop')}
             className="glass flex h-10 w-10 items-center justify-center rounded-full transition-transform hover:scale-105"
           >
             <ArrowUp size={16} strokeWidth={1.8} />

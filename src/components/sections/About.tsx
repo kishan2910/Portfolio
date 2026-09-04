@@ -1,20 +1,19 @@
-import { profile } from '../../data/profile'
+import { useContent } from '../../i18n/content'
 import { Chip } from '../ui/Chip'
 import { RevealOnScroll } from '../ui/RevealOnScroll'
 import { SectionHeading } from '../ui/SectionHeading'
 
 const SNAPSHOTS = [
-  { src: '/images/kishan-hiking.jpg', alt: 'Kishan hiking in the mountains', caption: 'Trail time' },
-  { src: '/images/kishan-outdoors.jpg', alt: 'Kishan with a dog outdoors', caption: 'Making friends' },
+  { src: '/images/kishan-hiking.jpg', alt: 'Kishan hiking in the mountains', captionKey: 'about.snapshot1' },
+  { src: '/images/kishan-outdoors.jpg', alt: 'Kishan with a dog outdoors', captionKey: 'about.snapshot2' },
 ]
 
 export function About() {
+  const { profile, t } = useContent()
+
   return (
     <section id="about" className="mx-auto max-w-3xl px-4 py-24 sm:px-6">
-      <SectionHeading
-        eyebrow="The Self"
-        title="A curious learner, building systems that think"
-      />
+      <SectionHeading eyebrow={t('section.about.eyebrow')} title={t('section.about.title')} />
 
       <RevealOnScroll className="glass p-7 sm:p-9">
         <div className="space-y-4">
@@ -41,7 +40,7 @@ export function About() {
                 loading="lazy"
               />
               <span className="mono-tag absolute bottom-2 left-2 rounded-full border border-white/20 bg-black/40 px-2.5 py-1 text-[10px] text-white backdrop-blur-sm">
-                {snap.caption}
+                {t(snap.captionKey)}
               </span>
             </div>
           ))}

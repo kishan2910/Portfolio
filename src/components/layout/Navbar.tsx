@@ -2,13 +2,15 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { navLinks } from '../../data/nav'
-import { profile } from '../../data/profile'
+import { useContent } from '../../i18n/content'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
+import { LangToggle } from './LangToggle'
 import { ThemeToggle } from './ThemeToggle'
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
   const active = useScrollSpy(navLinks.map((n) => n.id))
+  const { t } = useContent()
 
   const handleNavigate = (id: string) => {
     setOpen(false)
@@ -18,21 +20,10 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
       <nav
-        className="glass flex w-full max-w-3xl items-center justify-between gap-4 px-4 py-2.5 sm:px-6"
-        aria-label="Primary"
+        className="glass flex w-full max-w-3xl items-center gap-4 px-4 py-2.5 sm:px-6"
+        aria-label={t('a11y.primaryNav')}
       >
-        <a
-          href="#hero"
-          onClick={(e) => {
-            e.preventDefault()
-            handleNavigate('hero')
-          }}
-          className="flex h-9 w-9 items-center justify-center rounded-full text-sm font-semibold text-gradient border border-[var(--glass-border)]"
-        >
-          {profile.initials}
-        </a>
-
-        <ul className="hidden items-center gap-1 sm:flex">
+        <ul className="hidden flex-1 items-center justify-center gap-1 sm:flex">
           {navLinks.map((item) => (
             <li key={item.id}>
               <button
@@ -44,19 +35,20 @@ export function Navbar() {
                     : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                 }`}
               >
-                {item.label}
+                {t(`nav.${item.id}`)}
               </button>
             </li>
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-2">
+          <LangToggle />
           <ThemeToggle />
           <button
             type="button"
             className="glass flex h-10 w-10 items-center justify-center rounded-full sm:hidden"
             onClick={() => setOpen((o) => !o)}
-            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-label={open ? t('a11y.closeMenu') : t('a11y.openMenu')}
             aria-expanded={open}
           >
             {open ? <X size={18} /> : <Menu size={18} />}
@@ -82,7 +74,7 @@ export function Navbar() {
                   active === item.id ? 'bg-[var(--glass-surface-strong)]' : ''
                 }`}
               >
-                {item.label}
+                {t(`nav.${item.id}`)}
               </button>
             ))}
           </motion.div>

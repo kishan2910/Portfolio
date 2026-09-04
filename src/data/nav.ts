@@ -1,9 +1,10 @@
 import type { NavLink } from '../types'
 
+/** Section ids in scroll order. Labels come from the i18n strings (`nav.<id>`). */
 export const navLinks: NavLink[] = [
-  { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'journey', label: 'Journey' },
-  { id: 'education', label: 'Education' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'about' },
+  { id: 'skills' },
+  { id: 'journey' },
+  { id: 'education' },
+  { id: 'contact' },
 ]

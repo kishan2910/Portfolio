@@ -2,10 +2,11 @@ import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown, ExternalLink, Quote } from 'lucide-react'
 import type { ExperienceEntry, ProjectCard } from '../../../types'
+import { useContent } from '../../../i18n/content'
 import { Chip, MetricChip } from '../../ui/Chip'
 import { RevealOnScroll } from '../../ui/RevealOnScroll'
 
-const dedupe = (values: string[]) => [...new Set(values)]
+type T = (key: string, vars?: Record<string, string | number>) => string
 
 /**
  * Image slot for a project. Drop a file at `public<project.image>` and it
@@ -40,7 +41,7 @@ function ProjectImage({ src, alt }: { src?: string; alt?: string }) {
   )
 }
 
-function ClientProjectRow({ project }: { project: ProjectCard }) {
+function ClientProjectRow({ project, t }: { project: ProjectCard; t: T }) {
   return (
     <div className="grid gap-4 sm:grid-cols-[180px_1fr] sm:gap-5">
       <ProjectImage src={project.image} alt={project.imageAlt} />
@@ -78,7 +79,7 @@ function ClientProjectRow({ project }: { project: ProjectCard }) {
             rel="noreferrer"
             className="mono-tag mt-3 inline-flex items-center gap-1 text-[11px] text-[var(--accent-solid)] hover:underline"
           >
-            View project <ExternalLink size={11} />
+            {t('work.viewProject')} <ExternalLink size={11} />
           </a>
         )}
       </div>
@@ -87,12 +88,9 @@ function ClientProjectRow({ project }: { project: ProjectCard }) {
 }
 
 export function CompanyTimeline({ entry, index }: { entry: ExperienceEntry; index: number }) {
+  const { t } = useContent()
   const detailed = entry.projects.some((p) => p.image || p.href || p.client)
   const [open, setOpen] = useState(false)
-
-  const metrics = dedupe(entry.projects.flatMap((p) => p.metrics)).slice(0, 4)
-  const tech = dedupe(entry.projects.flatMap((p) => p.tech)).slice(0, 8)
-  const highlights = entry.projects.map((p) => p.title)
 
   return (
     <div className="relative pl-9 sm:pl-12">
@@ -117,7 +115,7 @@ export function CompanyTimeline({ entry, index }: { entry: ExperienceEntry; inde
             {entry.summary}
           </p>
 
-          {detailed ? (
+          {detailed && (
             <div className="mt-4">
               <button
                 type="button"
@@ -125,7 +123,9 @@ export function CompanyTimeline({ entry, index }: { entry: ExperienceEntry; inde
                 aria-expanded={open}
                 className="glass inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
               >
-                {open ? 'Hide' : 'View'} {entry.projects.length} client projects
+                {open
+                  ? t('work.hideProjects', { n: entry.projects.length })
+                  : t('work.showProjects', { n: entry.projects.length })}
                 <ChevronDown
                   size={14}
                   className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
@@ -144,7 +144,7 @@ export function CompanyTimeline({ entry, index }: { entry: ExperienceEntry; inde
                     <div className="mt-4 flex flex-col divide-y divide-[var(--glass-border)]">
                       {entry.projects.map((project) => (
                         <div key={project.title} className="py-6 first:pt-0 last:pb-0">
-                          <ClientProjectRow project={project} />
+                          <ClientProjectRow project={project} t={t} />
                         </div>
                       ))}
                     </div>
@@ -152,32 +152,6 @@ export function CompanyTimeline({ entry, index }: { entry: ExperienceEntry; inde
                 )}
               </AnimatePresence>
             </div>
-          ) : (
-            <>
-              {highlights.length > 0 && (
-                <p className="mt-3 text-xs text-[var(--text-tertiary)]">
-                  <span className="mono-tag">Built:</span> {highlights.join(' · ')}
-                </p>
-              )}
-
-              {metrics.length > 0 && (
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {metrics.map((metric) => (
-                    <MetricChip key={metric}>{metric}</MetricChip>
-                  ))}
-                </div>
-              )}
-
-              {tech.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {tech.map((tag) => (
-                    <Chip key={tag} className="!px-2.5 !py-1 !text-[11px]">
-                      {tag}
-                    </Chip>
-                  ))}
-                </div>
-              )}
-            </>
           )}
 
           {entry.testimonial && (

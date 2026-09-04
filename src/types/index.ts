@@ -1,3 +1,5 @@
+export type Locale = 'en' | 'de'
+
 export interface SocialLink {
   label: string
   href: string
@@ -12,7 +14,6 @@ export interface Position {
 
 export interface Profile {
   name: string
-  initials: string
   location: string
   positions: Position[]
   tagline: string
@@ -27,7 +28,6 @@ export interface Profile {
 
 export interface NavLink {
   id: string
-  label: string
 }
 
 export interface ProjectCard {
@@ -74,6 +74,7 @@ export interface EducationEntry {
   period: string
   grade?: string
   detail?: string
+  thesisUrl?: string
 }
 
 export interface CertificationEntry {

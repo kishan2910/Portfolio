@@ -1,17 +1,15 @@
 import { Mail, MapPin, Phone } from 'lucide-react'
-import { profile } from '../../../data/profile'
+import { useContent } from '../../../i18n/content'
 import { LinkButton } from '../../ui/Button'
 import { RevealOnScroll } from '../../ui/RevealOnScroll'
 import { SectionHeading } from '../../ui/SectionHeading'
 
 export function Contact() {
+  const { profile, t } = useContent()
+
   return (
     <section id="contact" className="mx-auto max-w-3xl px-4 py-24 sm:px-6">
-      <SectionHeading
-        eyebrow="Contact"
-        title="Let's build something"
-        description="Open to AI/MLOps engineering roles and interesting collaborations."
-      />
+      <SectionHeading eyebrow={t('section.contact.eyebrow')} title={t('section.contact.title')} />
 
       <RevealOnScroll className="glass p-7 sm:p-9">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -20,7 +18,7 @@ export function Contact() {
               <Mail size={15} />
             </span>
             <div className="min-w-0">
-              <p className="text-xs text-[var(--text-tertiary)]">Email</p>
+              <p className="text-xs text-[var(--text-tertiary)]">{t('contact.email')}</p>
               <a
                 href={`mailto:${profile.email}`}
                 className="block break-all text-sm font-medium hover:text-gradient"
@@ -35,7 +33,7 @@ export function Contact() {
               <Phone size={15} />
             </span>
             <div className="min-w-0">
-              <p className="text-xs text-[var(--text-tertiary)]">Phone</p>
+              <p className="text-xs text-[var(--text-tertiary)]">{t('contact.phone')}</p>
               <a href={`tel:${profile.phone.replace(/\s+/g, '')}`} className="text-sm font-medium hover:text-gradient">
                 {profile.phone}
               </a>
@@ -47,7 +45,7 @@ export function Contact() {
               <MapPin size={15} />
             </span>
             <div className="min-w-0">
-              <p className="text-xs text-[var(--text-tertiary)]">Location</p>
+              <p className="text-xs text-[var(--text-tertiary)]">{t('contact.location')}</p>
               <p className="text-sm font-medium">{profile.location}</p>
             </div>
           </div>
