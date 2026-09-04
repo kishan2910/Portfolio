@@ -3,7 +3,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronDown, ExternalLink, Quote } from 'lucide-react'
 import type { ExperienceEntry, ProjectCard } from '../../../types'
 import { useContent } from '../../../i18n/content'
-import { Chip, MetricChip } from '../../ui/Chip'
 import { RevealOnScroll } from '../../ui/RevealOnScroll'
 
 type T = (key: string, vars?: Record<string, string | number>) => string
@@ -55,22 +54,6 @@ function ClientProjectRow({ project, t }: { project: ProjectCard; t: T }) {
         </p>
         {project.note && (
           <p className="mt-2 text-xs italic text-[var(--text-tertiary)]">{project.note}</p>
-        )}
-        {project.metrics.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-2">
-            {project.metrics.map((metric) => (
-              <MetricChip key={metric}>{metric}</MetricChip>
-            ))}
-          </div>
-        )}
-        {project.tech.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-1.5">
-            {project.tech.map((tag) => (
-              <Chip key={tag} className="!px-2.5 !py-1 !text-[11px]">
-                {tag}
-              </Chip>
-            ))}
-          </div>
         )}
         {project.href && (
           <a

@@ -8,7 +8,7 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       location: 'Flensburg, Germany',
       period: 'Jan 2025 - Present',
       summary:
-        'Part of the state AI-transfer initiative Künstliche Intelligenz SH — a service-based team that helps small and mid-sized companies (SMEs) and public bodies across Schleswig-Holstein put AI into practice. I run the LLM infrastructure and deliver client projects end-to-end, from first workshop to a running system.',
+        'Part of the state AI-transfer initiative Künstliche Intelligenz SH - a team that helps small and mid-sized companies (SMEs) across Schleswig-Holstein put AI into practice. I run the LLM infrastructure and deliver client projects end-to-end, from defining usecases to running scalable system.',
       projects: [
         {
           title: 'LLM Infrastructure & MLOps Platform',
@@ -82,7 +82,7 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       location: 'Kötz, Germany',
       period: 'Apr 2024 — Sep 2024',
       summary:
-        'Trained a YOLO instance-segmentation model for real-time obstacle avoidance on robotic lawn mowers and shipped it to a Raspberry Pi 5 edge target.',
+        'Trained and finetuned YOLOv8 instance-segmentation model for real-time obstacle avoidance on robotic lawn mowers and deployed it to Raspberry Pi 5 edge device.',
       projects: [
         {
           title: 'Real-Time Obstacle Avoidance for Robotic Lawn Mowers',
@@ -135,7 +135,7 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       location: 'Ahmedabad, India',
       period: 'Mar 2021 — Jun 2022',
       summary:
-        'Built high-speed computer-vision systems for pharmaceutical packaging lines — OCR and Data Matrix decoding that runs in real time.',
+        'Built an OCR and Data Matrix decoding system for pharmaceutical cartons, using sequence modelling to map visual input to structured text.',
       projects: [
         {
           title: 'High-Speed OCR & Data Matrix Decoding for Pharma Cartons',
@@ -162,7 +162,7 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       location: 'Flensburg, Deutschland',
       period: 'Jan. 2025 – heute',
       summary:
-        'Teil der landesweiten KI-Transfer-Initiative Künstliche Intelligenz SH — ein dienstleistungsorientiertes Team, das kleine und mittlere Unternehmen (KMU) sowie öffentliche Einrichtungen in Schleswig-Holstein dabei unterstützt, KI in die Praxis zu bringen. Ich betreibe die LLM-Infrastruktur und setze Kundenprojekte von A bis Z um — vom ersten Workshop bis zum laufenden System.',
+        'Teil der landesweiten KI-Transfer-Initiative Künstliche Intelligenz SH — ein Team, das kleine und mittlere Unternehmen (KMU) in Schleswig-Holstein dabei unterstützt, KI in die Praxis zu bringen. Ich betreibe die LLM-Infrastruktur und setze Kundenprojekte von A bis Z um — von der Definition der Use Cases bis zum skalierbaren, laufenden System.',
       projects: [
         {
           title: 'LLM-Infrastruktur & MLOps-Plattform',
@@ -236,7 +236,7 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       location: 'Kötz, Deutschland',
       period: 'Apr. 2024 — Sep. 2024',
       summary:
-        'Ein YOLO-Instanzsegmentierungsmodell für die Echtzeit-Hinderniserkennung von Mährobotern trainiert und auf einem Raspberry Pi 5 als Edge-Target ausgeliefert.',
+        'Ein YOLOv8-Instanzsegmentierungsmodell für die Echtzeit-Hinderniserkennung von Mährobotern trainiert und feinabgestimmt und auf einem Raspberry Pi 5 als Edge-Gerät ausgeliefert.',
       projects: [
         {
           title: 'Echtzeit-Hinderniserkennung für Mähroboter',
@@ -289,7 +289,7 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       location: 'Ahmedabad, Indien',
       period: 'März 2021 — Juni 2022',
       summary:
-        'Schnelle Computer-Vision-Systeme für pharmazeutische Verpackungslinien gebaut — OCR und Data-Matrix-Decodierung in Echtzeit.',
+        'Ein OCR- und Data-Matrix-Decodierungssystem für pharmazeutische Kartons gebaut, das mit Sequenzmodellierung visuelle Eingaben auf strukturierten Text abbildet.',
       projects: [
         {
           title: 'Schnelle OCR & Data-Matrix-Decodierung für Pharma-Kartons',

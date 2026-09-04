@@ -6,7 +6,7 @@ export const certifications: Record<Locale, CertificationEntry[]> = {
       name: 'AWS Certified Machine Learning Engineer (Associate)',
       issuer: 'Amazon Web Services',
       date: 'Nov 2025',
-      verifyUrl: 'https://aws.amazon.com/verification',
+      verifyUrl: '/certs/aws-ml-engineer-associate.pdf',
     },
     {
       name: 'Open Source LLMOps Solutions',
@@ -27,7 +27,7 @@ export const certifications: Record<Locale, CertificationEntry[]> = {
       name: 'AWS Certified Machine Learning Engineer (Associate)',
       issuer: 'Amazon Web Services',
       date: 'Nov. 2025',
-      verifyUrl: 'https://aws.amazon.com/verification',
+      verifyUrl: '/certs/aws-ml-engineer-associate.pdf',
     },
     {
       name: 'Open Source LLMOps Solutions',

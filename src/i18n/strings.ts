@@ -30,7 +30,7 @@ const en = {
   'section.skills.eyebrow': 'Skills',
   'section.skills.title': 'The tools I reach for',
   'section.journey.eyebrow': 'The Journey',
-  'section.journey.title': 'Each stop, what I shipped, and who it was for',
+  'section.journey.title': 'Each stop, what I shipped and who it was for',
   'section.education.eyebrow': 'Education',
   'section.education.title': 'Where the fundamentals came from',
   'section.contact.eyebrow': 'Contact',
@@ -42,6 +42,7 @@ const en = {
   'edu.education': 'Education',
   'edu.certifications': 'Certifications',
   'edu.verify': 'Verify',
+  'edu.certificate': 'View certificate',
   'edu.viewThesis': 'View thesis & code',
 
   'work.showProjects': 'View {n} client projects',
@@ -98,6 +99,7 @@ const de: Record<StringKey, string> = {
   'edu.education': 'Ausbildung',
   'edu.certifications': 'Zertifikate',
   'edu.verify': 'Verifizieren',
+  'edu.certificate': 'Zertifikat ansehen',
   'edu.viewThesis': 'Masterarbeit & Code ansehen',
 
   'work.showProjects': '{n} Kundenprojekte anzeigen',

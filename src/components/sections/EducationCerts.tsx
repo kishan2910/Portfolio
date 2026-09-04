@@ -65,7 +65,8 @@ export function EducationCerts() {
                       rel="noreferrer"
                       className="mono-tag mt-1.5 inline-flex items-center gap-1 text-[11px] text-[var(--accent-solid)] hover:underline"
                     >
-                      {t('edu.verify')} <ExternalLink size={11} />
+                      {cert.verifyUrl.endsWith('.pdf') ? t('edu.certificate') : t('edu.verify')}{' '}
+                      <ExternalLink size={11} />
                     </a>
                   )}
                 </div>
