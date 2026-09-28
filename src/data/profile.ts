@@ -36,7 +36,7 @@ export const profile: Record<Locale, Profile> = {
       "Outside of work, I'm usually out on a trail, making friends with the nearest dog, or a few episodes into an anime. Always happy to talk shop over coffee.",
     ],
     languages: [
-      { name: 'English', level: 'Fluent' },
+      { name: 'English', level: 'Professional' },
       { name: 'German', level: 'Advanced (B1–B2)' },
       { name: 'Hindi', level: 'Native' },
       { name: 'Gujarati', level: 'Native' },
