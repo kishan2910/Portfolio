@@ -32,16 +32,12 @@ export interface NavLink {
 
 export interface ProjectCard {
   title: string
-  description: string
-  metrics: string[]
-  tech: string[]
+  /** Plain prose, or a list of bullet points for multi-facet projects. */
+  description: string | string[]
   /** Client / partner org this project was delivered for (service engagements). */
   client?: string
   /** External link to a public project page / case study. */
   href?: string
-  /** Path under /public to a project image, e.g. "/images/projects/foo.jpg". */
-  image?: string
-  imageAlt?: string
   /** Small note shown under the description, e.g. "Project report on request". */
   note?: string
 }
@@ -60,6 +56,8 @@ export interface ExperienceEntry {
   summary: string
   projects: ProjectCard[]
   testimonial?: Testimonial
+  /** Route to a dedicated page listing this entry's client projects, instead of inline. */
+  projectsPage?: string
 }
 
 export interface SkillCategory {

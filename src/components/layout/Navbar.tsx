@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { navLinks } from '../../data/nav'
 import { useContent } from '../../i18n/content'
 import { useScrollSpy } from '../../hooks/useScrollSpy'
@@ -11,10 +12,16 @@ export function Navbar() {
   const [open, setOpen] = useState(false)
   const active = useScrollSpy(navLinks.map((n) => n.id))
   const { t } = useContent()
+  const location = useLocation()
+  const navigate = useNavigate()
 
   const handleNavigate = (id: string) => {
     setOpen(false)
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    if (location.pathname === '/') {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    } else {
+      navigate('/', { state: { scrollTo: id } })
+    }
   }
 
   return (

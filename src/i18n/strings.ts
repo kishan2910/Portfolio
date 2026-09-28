@@ -42,18 +42,18 @@ const en = {
   'edu.education': 'Education',
   'edu.certifications': 'Certifications',
   'edu.verify': 'Verify',
-  'edu.certificate': 'View certificate',
-  'edu.viewThesis': 'View thesis & code',
+  'edu.certificate': 'Verify',
+  'edu.viewThesis': 'View thesis',
 
   'work.showProjects': 'View {n} client projects',
-  'work.hideProjects': 'Hide {n} client projects',
   'work.viewProject': 'View project',
+  'work.backToJourney': 'Back to journey',
 
   'contact.email': 'Email',
   'contact.phone': 'Phone',
   'contact.location': 'Location',
 
-  'footer.built': 'Built with love.',
+  'footer.rights': 'All rights reserved.',
 }
 
 export type StringKey = keyof typeof en
@@ -103,14 +103,14 @@ const de: Record<StringKey, string> = {
   'edu.viewThesis': 'Masterarbeit & Code ansehen',
 
   'work.showProjects': '{n} Kundenprojekte anzeigen',
-  'work.hideProjects': '{n} Kundenprojekte ausblenden',
   'work.viewProject': 'Projekt ansehen',
+  'work.backToJourney': 'Zurück zum Werdegang',
 
   'contact.email': 'E-Mail',
   'contact.phone': 'Telefon',
   'contact.location': 'Standort',
 
-  'footer.built': 'Mit Liebe gebaut.',
+  'footer.rights': 'Alle Rechte vorbehalten.',
 }
 
 export const strings: Record<Locale, Record<StringKey, string>> = { en, de }

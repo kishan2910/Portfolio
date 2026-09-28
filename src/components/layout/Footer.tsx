@@ -1,4 +1,5 @@
 import { Mail, ArrowUp } from 'lucide-react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useContent } from '../../i18n/content'
 import { GithubIcon, LinkedinIcon } from '../icons/BrandIcons'
 
@@ -7,6 +8,8 @@ const ICONS = { github: GithubIcon, linkedin: LinkedinIcon, mail: Mail, phone: M
 export function Footer() {
   const { profile, t } = useContent()
   const year = new Date().getFullYear()
+  const location = useLocation()
+  const navigate = useNavigate()
 
   return (
     <footer className="mx-auto max-w-5xl px-4 pb-10 pt-6 sm:px-6">
@@ -14,7 +17,7 @@ export function Footer() {
         <div>
           <p className="text-sm font-semibold text-[var(--text-primary)]">{profile.name}</p>
           <p className="mt-1 text-xs text-[var(--text-tertiary)]">
-            © {year} — {t('footer.built')}
+            © {year} {profile.name}. {t('footer.rights')}
           </p>
         </div>
 
@@ -38,7 +41,11 @@ export function Footer() {
             href="#hero"
             onClick={(e) => {
               e.preventDefault()
-              document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })
+              if (location.pathname === '/') {
+                document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })
+              } else {
+                navigate('/', { state: { scrollTo: 'hero' } })
+              }
             }}
             aria-label={t('a11y.backToTop')}
             className="glass flex h-10 w-10 items-center justify-center rounded-full transition-transform hover:scale-105"

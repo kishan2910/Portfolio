@@ -1,18 +1,19 @@
+import { lazy, Suspense, useEffect } from 'react'
 import { MotionConfig } from 'framer-motion'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { CursorGlow } from './components/layout/CursorGlow'
 import { Footer } from './components/layout/Footer'
 import { Navbar } from './components/layout/Navbar'
 import { NoiseOverlay } from './components/layout/NoiseOverlay'
 import { Starfield } from './components/layout/Starfield'
-import { About } from './components/sections/About'
-import { Contact } from './components/sections/Contact/Contact'
-import { EducationCerts } from './components/sections/EducationCerts'
-import { Hero } from './components/sections/Hero'
-import { Skills } from './components/sections/Skills/Skills'
-import { Work } from './components/sections/Work/Work'
 import { ThemeProvider } from './context/ThemeContext'
 import { useContent } from './i18n/content'
 import { LocaleProvider } from './i18n/LocaleContext'
+import { Home } from './pages/Home'
+
+const HhsFlensburgPage = lazy(() =>
+  import('./pages/HhsFlensburgPage').then((m) => ({ default: m.HhsFlensburgPage })),
+)
 
 function SkipLink() {
   const { t } = useContent()
@@ -21,6 +22,18 @@ function SkipLink() {
       {t('a11y.skip')}
     </a>
   )
+}
+
+/** Resets scroll position on route changes, except when Home is about to scroll to a section itself. */
+function ScrollToTop() {
+  const location = useLocation()
+
+  useEffect(() => {
+    const scrollingToSection = location.pathname === '/' && Boolean((location.state as { scrollTo?: string } | null)?.scrollTo)
+    if (!scrollingToSection) window.scrollTo(0, 0)
+  }, [location.pathname, location.state])
+
+  return null
 }
 
 function App() {
@@ -32,14 +45,20 @@ function App() {
           <Starfield />
           <CursorGlow />
           <NoiseOverlay />
+          <ScrollToTop />
           <Navbar />
           <main id="main">
-            <Hero />
-            <About />
-            <Skills />
-            <Work />
-            <EducationCerts />
-            <Contact />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route
+                path="/hs-flensburg"
+                element={
+                  <Suspense fallback={null}>
+                    <HhsFlensburgPage />
+                  </Suspense>
+                }
+              />
+            </Routes>
           </main>
           <Footer />
         </MotionConfig>

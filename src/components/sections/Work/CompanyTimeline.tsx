@@ -1,79 +1,11 @@
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronDown, ExternalLink, Quote } from 'lucide-react'
-import type { ExperienceEntry, ProjectCard } from '../../../types'
+import { ArrowRight, Quote } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import type { ExperienceEntry } from '../../../types'
 import { useContent } from '../../../i18n/content'
 import { RevealOnScroll } from '../../ui/RevealOnScroll'
 
-type T = (key: string, vars?: Record<string, string | number>) => string
-
-/**
- * Image slot for a project. Drop a file at `public<project.image>` and it
- * shows automatically; until then a labelled placeholder marks the spot.
- */
-function ProjectImage({ src, alt }: { src?: string; alt?: string }) {
-  const [failed, setFailed] = useState(false)
-  const showPlaceholder = !src || failed
-
-  return (
-    <div className="relative aspect-video w-full overflow-hidden rounded-xl border border-[var(--glass-border)] bg-[var(--glass-surface)] sm:aspect-[4/3]">
-      {src && !failed && (
-        <img
-          src={src}
-          alt={alt ?? ''}
-          loading="lazy"
-          onError={() => setFailed(true)}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      )}
-      {showPlaceholder && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 p-3 text-center">
-          <span className="text-xs font-medium text-[var(--text-tertiary)]">Image</span>
-          {src && (
-            <span className="mono-tag break-all text-[10px] leading-tight text-[var(--text-tertiary)]">
-              public{src}
-            </span>
-          )}
-        </div>
-      )}
-    </div>
-  )
-}
-
-function ClientProjectRow({ project, t }: { project: ProjectCard; t: T }) {
-  return (
-    <div className="grid gap-4 sm:grid-cols-[180px_1fr] sm:gap-5">
-      <ProjectImage src={project.image} alt={project.imageAlt} />
-      <div>
-        <h4 className="text-base font-semibold">{project.title}</h4>
-        {project.client && (
-          <p className="mt-0.5 text-xs font-medium text-[var(--accent-solid)]">{project.client}</p>
-        )}
-        <p className="mt-2 text-sm leading-relaxed text-[var(--text-secondary)]">
-          {project.description}
-        </p>
-        {project.note && (
-          <p className="mt-2 text-xs italic text-[var(--text-tertiary)]">{project.note}</p>
-        )}
-        {project.href && (
-          <a
-            href={project.href}
-            target="_blank"
-            rel="noreferrer"
-            className="mono-tag mt-3 inline-flex items-center gap-1 text-[11px] text-[var(--accent-solid)] hover:underline"
-          >
-            {t('work.viewProject')} <ExternalLink size={11} />
-          </a>
-        )}
-      </div>
-    </div>
-  )
-}
-
 export function CompanyTimeline({ entry, index }: { entry: ExperienceEntry; index: number }) {
   const { t } = useContent()
-  const detailed = entry.projects.some((p) => p.image || p.href || p.client)
-  const [open, setOpen] = useState(false)
 
   return (
     <div className="relative pl-9 sm:pl-12">
@@ -98,43 +30,14 @@ export function CompanyTimeline({ entry, index }: { entry: ExperienceEntry; inde
             {entry.summary}
           </p>
 
-          {detailed && (
-            <div className="mt-4">
-              <button
-                type="button"
-                onClick={() => setOpen((v) => !v)}
-                aria-expanded={open}
-                className="glass inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
-              >
-                {open
-                  ? t('work.hideProjects', { n: entry.projects.length })
-                  : t('work.showProjects', { n: entry.projects.length })}
-                <ChevronDown
-                  size={14}
-                  className={`transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
-                />
-              </button>
-
-              <AnimatePresence initial={false}>
-                {open && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="overflow-hidden"
-                  >
-                    <div className="mt-4 flex flex-col divide-y divide-[var(--glass-border)]">
-                      {entry.projects.map((project) => (
-                        <div key={project.title} className="py-6 first:pt-0 last:pb-0">
-                          <ClientProjectRow project={project} t={t} />
-                        </div>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+          {entry.projectsPage && entry.projects.length > 0 && (
+            <Link
+              to={entry.projectsPage}
+              className="glass mt-4 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
+            >
+              {t('work.showProjects', { n: entry.projects.length })}
+              <ArrowRight size={14} />
+            </Link>
           )}
 
           {entry.testimonial && (
