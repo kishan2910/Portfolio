@@ -23,22 +23,6 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
           ],
         },
         {
-          title: 'RAG Pipeline over Technical Documentation',
-          client: 'Möller Operating Engineering GmbH',
-          description: [
-            'Developed an agentic RAG pipeline over internal technical documentation for interactive Q&A system with grounded, verifiable source citations.',
-            'Combined Docling, Tesseract OCR and Vision-Language Models (VLMs) to extract text, tables and complex diagram contexts from engineering PDFs that standard parsers miss.',
-            'Architected document chunking, embedding and indexing in ChromaDB to enable high-precision vector similarity search across technical repositories.',
-            'Integrated an agentic routing layer and dynamic evaluation metrics to measure retrieval accuracy and answer groundedness, eliminating hallucinated responses.',
-          ],
-        },
-        {
-          title: 'Knowledge Base Onboarding for RAG',
-          client: 'fjord7',
-          description:
-            'Onboarded fjord7’s document corpus into the RAG knowledge base — structured the ingestion, chunking and embedding of their material and tuned retrieval so answers stay grounded in their own content.',
-        },
-        {
           title: 'Automated Nematode Analysis for Sustainable Crop Protection',
           client: 'Künstliche Intelligenz SH — agriculture partner',
           href: 'https://kuenstliche-intelligenz.sh/de/automatisierte-nematodenanalyse-fuer-nachhaltigen-pflanzenschutz',
@@ -47,6 +31,16 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
             'Leveraged Segment Anything Model 2 (SAM 2) and custom keypoint labeling to track and segment microscopic organisms across video frames for dataset generation.',
             'Trained an efficient YOLO model to detect and classify living vs. dead nematodes in real time while filtering out debris, air bubbles and object clusters.',
             'Reduced sample analysis time from 30 minutes to 2 minutes (~93% speedup) at 85% accuracy, drastically accelerating quality assurance for biological crop protection products.',
+          ],
+        },
+        {
+          title: 'RAG Pipeline over Technical Documentation',
+          client: 'Möller Operating Engineering GmbH',
+          description: [
+            'Developed an agentic RAG pipeline over internal technical documentation for interactive Q&A system with grounded, verifiable source citations.',
+            'Combined Docling, Tesseract OCR and Vision-Language Models (VLMs) to extract text, tables and complex diagram contexts from engineering PDFs that standard parsers miss.',
+            'Architected document chunking, embedding and indexing in ChromaDB to enable high-precision vector similarity search across technical repositories.',
+            'Integrated an agentic routing layer and dynamic evaluation metrics to measure retrieval accuracy and answer groundedness, eliminating hallucinated responses.',
           ],
         },
         {
