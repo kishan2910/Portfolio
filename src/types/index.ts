@@ -53,7 +53,8 @@ export interface ExperienceEntry {
   role: string
   location: string
   period: string
-  summary: string
+  /** Plain prose, or a list of bullet points for multi-facet roles. */
+  summary: string | string[]
   projects: ProjectCard[]
   testimonial?: Testimonial
   /** Route to a dedicated page listing this entry's client projects, instead of inline. */

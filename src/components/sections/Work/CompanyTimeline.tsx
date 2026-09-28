@@ -26,9 +26,20 @@ export function CompanyTimeline({ entry, index }: { entry: ExperienceEntry; inde
             {entry.role} · {entry.location}
           </p>
 
-          <p className="mt-4 text-[15px] leading-relaxed text-[var(--text-secondary)]">
-            {entry.summary}
-          </p>
+          {Array.isArray(entry.summary) ? (
+            <ul className="mt-4 flex flex-col gap-2 text-[15px] leading-relaxed text-[var(--text-secondary)]">
+              {entry.summary.map((point) => (
+                <li key={point} className="flex gap-2">
+                  <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-[var(--accent-solid)]" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="mt-4 text-[15px] leading-relaxed text-[var(--text-secondary)]">
+              {entry.summary}
+            </p>
+          )}
 
           {entry.projectsPage && entry.projects.length > 0 && (
             <Link

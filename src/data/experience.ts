@@ -24,7 +24,7 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
         },
         {
           title: 'Automated Nematode Analysis for Sustainable Crop Protection',
-          client: 'Künstliche Intelligenz SH — agriculture partner',
+          client: 'E-Nema',
           href: 'https://kuenstliche-intelligenz.sh/de/automatisierte-nematodenanalyse-fuer-nachhaltigen-pflanzenschutz',
           description: [
             'Automated manual biological quality control by replacing 30-minute microscopic counts with a real-time computer vision video analysis pipeline.',
@@ -45,7 +45,7 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
         },
         {
           title: 'AI-Based Fault Detection in Solar Plants',
-          client: 'Künstliche Intelligenz SH — energy partner',
+          client: 'Solar-Energie Andresen GmbH',
           href: 'https://kuenstliche-intelligenz.sh/de/wartung-mit-weitblick-ki-gestuetzte-stoerungserkennung-in-solaranlagen',
           description:
             '“Maintenance with foresight” — anomaly and fault detection on solar-plant operating data that flags failures early and helps operators prioritise maintenance before yield is lost.',
@@ -57,20 +57,11 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       role: 'Master Thesis — Computer Vision Engineer',
       location: 'Kötz, Germany',
       period: 'Apr 2024 — Sep 2024',
-      summary:
-        'Trained and finetuned YOLOv8 instance-segmentation model for real-time obstacle avoidance on robotic lawn mowers and deployed it to Raspberry Pi 5 edge device.',
-      projects: [
-        {
-          title: 'Real-Time Obstacle Avoidance for Robotic Lawn Mowers',
-          description:
-            'Trained and fine-tuned a YOLO instance segmentation model to detect and classify critical obstacles for a robotic lawn mower.',
-        },
-        {
-          title: 'Edge Deployment on Raspberry Pi 5',
-          description:
-            'Converted the trained model to NCNN format for on-device inference, cutting latency with under 1% accuracy drop.',
-        },
+      summary: [
+        'Developed a real-time obstacle avoidance system for robotic lawn mowers by training and fine-tuning a YOLO instance segmentation model, achieving 90.2% mAP and 87.9% recall on critical objects.',
+        'Deployed on Raspberry Pi 5, converting the model to NCNN format and reducing inference time from 1492ms to 435ms (3.4× faster) with under 1% accuracy drop.',
       ],
+      projects: [],
       testimonial: {
         quote:
           'Demonstrated deep technical expertise in implementing and training neural networks, delivering an outstanding result well beyond what was expected of him.',
@@ -84,14 +75,8 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       location: 'Neu-Ulm, Germany',
       period: 'Jan 2023 — Dec 2023',
       summary:
-        "Built a simulation-data conversion pipeline for ADAS testing, mapping vehicle recordings into Continental's internal format to validate Matrix-LED light control.",
-      projects: [
-        {
-          title: 'Simulation Data Pipeline for ADAS Testing',
-          description:
-            "Analysed the container structures used to store vehicle simulation data, designed a field-level mapping to Continental's internal recording format, and implemented the conversion pipeline — filtering redundant frames to cut dataset volume and enable evaluation of the Matrix-LED light-control algorithm against simulated night scenarios.",
-        },
-      ],
+        "Analysed the container structures used to store vehicle simulation data, designed a field-level mapping to Continental's internal recording format, and built the conversion pipeline — filtering redundant frames to cut dataset volume so the Matrix-LED light-control algorithm could be evaluated against simulated night scenarios.",
+      projects: [],
       testimonial: {
         quote:
           "A diligent working student, keenly interested in the company's work — particularly notable for his ability to quickly grasp and analyze complex problems.",
@@ -104,20 +89,13 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       role: 'Junior AI Engineer',
       location: 'Ahmedabad, India',
       period: 'Mar 2021 — Jun 2022',
-      summary:
-        'Built an OCR and Data Matrix decoding system for pharmaceutical cartons, using sequence modelling to map visual input to structured text.',
-      projects: [
-        {
-          title: 'High-Speed OCR & Data Matrix Decoding for Pharma Cartons',
-          description:
-            'Built an OCR and Data Matrix decoding system for pharmaceutical cartons, using sequence modelling to map visual input to structured text — fast enough for real-time inference (<3 ms) to meet packaging-standard compliance.',
-        },
-        {
-          title: 'CNN OCR Pipelines for Industrial Images',
-          description:
-            'Developed CNN-based OCR pipelines to extract text from industrial images, improving accuracy from 49% to 98%. Converted models to ONNX for cross-platform deployment and optimised with TensorRT down to 10 ms inference.',
-        },
+      summary: [
+        'Built a high-speed OCR + Data Matrix decoding system for pharmaceutical cartons using sequence modeling techniques to map visual inputs to structured text outputs, enabling real-time inference (<3 ms) and meeting pharmaceutical packaging standard compliance.',
+        'Contributed to developing OCR pipelines using CNN-based models and computer vision techniques for extracting text from industrial images, improving accuracy from 49% to 98%.',
+        'Converted CNN models to ONNX format for cross-platform deployment, improving compatibility and performance.',
+        'Optimized CNN models with TensorRT, reducing inference time to 10 ms.',
       ],
+      projects: [],
     },
   ],
 
@@ -177,20 +155,11 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       role: 'Masterarbeit — Computer-Vision-Engineer',
       location: 'Kötz, Deutschland',
       period: 'Apr. 2024 — Sep. 2024',
-      summary:
-        'Ein YOLOv8-Instanzsegmentierungsmodell für die Echtzeit-Hinderniserkennung von Mährobotern trainiert und feinabgestimmt und auf einem Raspberry Pi 5 als Edge-Gerät ausgeliefert.',
-      projects: [
-        {
-          title: 'Echtzeit-Hinderniserkennung für Mähroboter',
-          description:
-            'Ein YOLO-Instanzsegmentierungsmodell trainiert und feinabgestimmt, um kritische Hindernisse für einen Mähroboter zu erkennen und zu klassifizieren.',
-        },
-        {
-          title: 'Edge-Deployment auf Raspberry Pi 5',
-          description:
-            'Das trainierte Modell für die Inferenz auf dem Gerät nach NCNN konvertiert und die Latenz bei unter 1 % Genauigkeitsverlust gesenkt.',
-        },
+      summary: [
+        'Ein Echtzeit-Hinderniserkennungssystem für Mähroboter entwickelt, indem ein YOLO-Instanzsegmentierungsmodell trainiert und feinabgestimmt wurde — mit 90,2 % mAP und 87,9 % Recall bei kritischen Objekten.',
+        'Auf einem Raspberry Pi 5 bereitgestellt, das Modell nach NCNN konvertiert und die Inferenzzeit von 1492 ms auf 435 ms (3,4× schneller) bei unter 1 % Genauigkeitsverlust reduziert.',
       ],
+      projects: [],
       testimonial: {
         quote:
           'Herr Ajudiya überzeugte durch tiefe Fachkenntnisse im Bereich der Umsetzung und vor allem des Trainings von neuronalen Netzen. Dabei gelang es ihm in kürzester Zeit, die an ihn gestellten Aufgaben umzusetzen und ein hervorragendes Ergebnis zu erreichen.',
@@ -204,14 +173,8 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       location: 'Neu-Ulm, Deutschland',
       period: 'Jan. 2023 — Dez. 2023',
       summary:
-        'Eine Pipeline zur Umwandlung von Simulationsdaten für ADAS-Tests gebaut, die Fahrzeugaufzeichnungen in Continentals internes Format überführt, um die Matrix-LED-Lichtsteuerung zu validieren.',
-      projects: [
-        {
-          title: 'Simulationsdaten-Pipeline für ADAS-Tests',
-          description:
-            'Die Container-Strukturen zur Speicherung von Fahrzeug-Simulationsdaten analysiert, eine feldgenaue Zuordnung zu Continentals internem Aufzeichnungsformat entworfen und die Umwandlungs-Pipeline implementiert — redundante Frames herausgefiltert, um das Datenvolumen zu reduzieren und die Matrix-LED-Lichtsteuerung gegen simulierte Nachtszenarien auswertbar zu machen.',
-        },
-      ],
+        'Die Container-Strukturen zur Speicherung von Fahrzeug-Simulationsdaten analysiert, eine feldgenaue Zuordnung zu Continentals internem Aufzeichnungsformat entworfen und die Umwandlungs-Pipeline implementiert — redundante Frames herausgefiltert, um das Datenvolumen zu reduzieren und die Matrix-LED-Lichtsteuerung gegen simulierte Nachtszenarien auswertbar zu machen.',
+      projects: [],
       testimonial: {
         quote:
           'Ein fleißiger, an der Arbeit des Unternehmens sehr interessierter Werkstudent — besonders hervorzuheben sind seine Fähigkeiten, komplexe Sachverhalte schnell zu erfassen und zu analysieren.',
@@ -224,20 +187,13 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       role: 'Junior AI Engineer',
       location: 'Ahmedabad, Indien',
       period: 'März 2021 — Juni 2022',
-      summary:
-        'Ein OCR- und Data-Matrix-Decodierungssystem für pharmazeutische Kartons gebaut, das mit Sequenzmodellierung visuelle Eingaben auf strukturierten Text abbildet.',
-      projects: [
-        {
-          title: 'Schnelle OCR & Data-Matrix-Decodierung für Pharma-Kartons',
-          description:
-            'Ein OCR- und Data-Matrix-Decodierungssystem für pharmazeutische Kartons gebaut, das mit Sequenzmodellierung visuelle Eingaben auf strukturierten Text abbildet — schnell genug für Echtzeit-Inferenz (<3 ms), um Verpackungsnormen zu erfüllen.',
-        },
-        {
-          title: 'CNN-OCR-Pipelines für Industriebilder',
-          description:
-            'CNN-basierte OCR-Pipelines entwickelt, um Text aus Industriebildern zu extrahieren, und die Genauigkeit von 49 % auf 98 % gesteigert. Modelle für den plattformübergreifenden Einsatz nach ONNX konvertiert und mit TensorRT auf 10 ms Inferenz optimiert.',
-        },
+      summary: [
+        'Ein Hochgeschwindigkeits-OCR- und Data-Matrix-Decodierungssystem für pharmazeutische Kartons gebaut, das mit Sequenzmodellierung visuelle Eingaben auf strukturierten Text abbildet — für Echtzeit-Inferenz (<3 ms) und zur Erfüllung pharmazeutischer Verpackungsnormen.',
+        'Mitgewirkt an der Entwicklung von OCR-Pipelines mit CNN-basierten Modellen und Computer-Vision-Techniken zur Textextraktion aus Industriebildern, wodurch die Genauigkeit von 49 % auf 98 % gesteigert wurde.',
+        'CNN-Modelle für den plattformübergreifenden Einsatz nach ONNX konvertiert und so Kompatibilität und Performance verbessert.',
+        'CNN-Modelle mit TensorRT optimiert und die Inferenzzeit auf 10 ms reduziert.',
       ],
+      projects: [],
     },
   ],
 }
