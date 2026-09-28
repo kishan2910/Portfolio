@@ -143,22 +143,6 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
           ],
         },
         {
-          title: 'RAG-Pipeline über technische Dokumentation',
-          client: 'Möller Operating Engineering GmbH',
-          description: [
-            'Eine agentische RAG-Pipeline über die interne technische Dokumentation entwickelt — für ein interaktives Q&A-System mit belegten, überprüfbaren Quellenangaben.',
-            'Docling, Tesseract OCR und Vision-Language-Modelle (VLMs) kombiniert, um Text, Tabellen und komplexe Diagrammkontexte aus technischen PDFs zu extrahieren, die Standard-Parser übersehen.',
-            'Dokumenten-Chunking, Embedding und Indexierung in ChromaDB entworfen, um hochpräzise Vektor-Ähnlichkeitssuche über technische Dokumentenbestände zu ermöglichen.',
-            'Eine agentische Routing-Schicht und dynamische Evaluationsmetriken integriert, um Retrieval-Genauigkeit und Antwortverankerung zu messen und Halluzinationen zu eliminieren.',
-          ],
-        },
-        {
-          title: 'Wissensbasis-Onboarding für RAG',
-          client: 'fjord7',
-          description:
-            'Den Dokumentenbestand von fjord7 in die RAG-Wissensbasis überführt — Ingestion, Chunking und Embedding des Materials strukturiert und das Retrieval so abgestimmt, dass Antworten in den eigenen Inhalten verankert bleiben.',
-        },
-        {
           title: 'Automatisierte Nematodenanalyse für nachhaltigen Pflanzenschutz',
           client: 'Künstliche Intelligenz SH — Partner aus der Landwirtschaft',
           href: 'https://kuenstliche-intelligenz.sh/de/automatisierte-nematodenanalyse-fuer-nachhaltigen-pflanzenschutz',
@@ -167,6 +151,16 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
             'Segment Anything Model 2 (SAM 2) und individuelles Keypoint-Labeling genutzt, um mikroskopische Organismen über Videoframes hinweg zu verfolgen und zu segmentieren und so Trainingsdaten zu erzeugen.',
             'Ein effizientes YOLO-Modell trainiert, um lebende und tote Nematoden in Echtzeit zu erkennen und zu klassifizieren und dabei Schmutzpartikel, Luftblasen und Objektcluster herauszufiltern.',
             'Die Analysezeit pro Probe von 30 Minuten auf 2 Minuten reduziert (~93 % schneller) bei 85 % Genauigkeit und damit die Qualitätssicherung für biologische Pflanzenschutzprodukte drastisch beschleunigt.',
+          ],
+        },
+        {
+          title: 'RAG-Pipeline über technische Dokumentation',
+          client: 'Möller Operating Engineering GmbH',
+          description: [
+            'Eine agentische RAG-Pipeline über die interne technische Dokumentation entwickelt — für ein interaktives Q&A-System mit belegten, überprüfbaren Quellenangaben.',
+            'Docling, Tesseract OCR und Vision-Language-Modelle (VLMs) kombiniert, um Text, Tabellen und komplexe Diagrammkontexte aus technischen PDFs zu extrahieren, die Standard-Parser übersehen.',
+            'Dokumenten-Chunking, Embedding und Indexierung in ChromaDB entworfen, um hochpräzise Vektor-Ähnlichkeitssuche über technische Dokumentenbestände zu ermöglichen.',
+            'Eine agentische Routing-Schicht und dynamische Evaluationsmetriken integriert, um Retrieval-Genauigkeit und Antwortverankerung zu messen und Halluzinationen zu eliminieren.',
           ],
         },
         {
