@@ -16,10 +16,10 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
           client: 'Hochschule Flensburg',
           href: 'https://kuenstliche-intelligenz.sh/de/hs-flensburg',
           description: [
-            'Spearheaded the deployment of a single-node, 2× H100 GPU server for on-premise LLM hosting via vLLM to serve ~500 concurrent users at low per-token latency.',
+            'Spearheaded the deployment of a single-node 2× H100 server for hosting open-source LLMs (e.g. Qwen3-Coder-Next) via vLLM to serve ~500 active users.',
             'Applied tensor parallelism across both GPUs to host high-parameter LLMs exceeding single-GPU memory limits.',
-            'Integrated OpenWebUI with web search and image generation, giving internal teams feature-rich AI chat and API access to locally hosted models.',
-            'Implemented Keycloak integration to centralize authentication and enforce enterprise access controls across all local AI services.',
+            'Deployed Open WebUI with web search, image generation and API access as the internal AI platform for locally hosted models.',
+            'Secured the platform with Keycloak SSO across all local AI services.',
           ],
         },
         {
@@ -37,10 +37,10 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
           title: 'RAG Pipeline over Technical Documentation',
           client: 'Möller Operating Engineering GmbH',
           description: [
-            'Developed an agentic RAG pipeline over internal technical documentation for interactive Q&A system with grounded, verifiable source citations.',
-            'Combined Docling, Tesseract OCR and Vision-Language Models (VLMs) to extract text, tables and complex diagram contexts from engineering PDFs that standard parsers miss.',
-            'Architected document chunking, embedding and indexing in ChromaDB to enable high-precision vector similarity search across technical repositories.',
-            'Integrated an agentic routing layer and dynamic evaluation metrics to measure retrieval accuracy and answer groundedness, eliminating hallucinated responses.',
+            'Built an agentic RAG system for Q&A over internal engineering documentation, cutting average lookup time from ~5 min to ~8 s.',
+            'Indexed documents in Qdrant with hybrid search (BM25 + dense) and reranking for high-precision retrieval with grounded source citations.',
+            'Developed document ingestion with Docling, Tesseract OCR and Vision-Language Models (VLMs) to extract text, tables and diagrams from engineering PDFs.',
+            'Set up evaluation with DeepEval (LLM-as-a-judge) for answer correctness, faithfulness and hallucination rate, plus MLflow tracing for debugging in production.',
           ],
         },
         {
@@ -58,8 +58,8 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       location: 'Kötz, Germany',
       period: 'Apr 2024 — Sep 2024',
       summary: [
-        'Developed a real-time obstacle avoidance system for robotic lawn mowers by training and fine-tuning a YOLO instance segmentation model, achieving 90.2% mAP and 87.9% recall on critical objects.',
-        'Deployed on Raspberry Pi 5, converting the model to NCNN format and reducing inference time from 1492ms to 435ms (3.4× faster) with under 1% accuracy drop.',
+        'Developed an obstacle avoidance system for robotic lawn mowers by training and fine-tuning YOLOv8 instance segmentation, achieving 90.2% mAP and 87.9% recall on critical objects.',
+        'Deployed on Raspberry Pi 5, converting the model to NCNN format and reducing inference time from 1,492 ms to 435 ms (3.4× faster) with <1% mAP drop.',
       ],
       projects: [],
       testimonial: {
@@ -88,12 +88,11 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       company: 'BLUIE',
       role: 'Junior AI Engineer',
       location: 'Ahmedabad, India',
-      period: 'Mar 2021 — Jun 2022',
+      period: 'Jan 2021 — Jul 2022',
       summary: [
-        'Built a high-speed OCR + Data Matrix decoding system for pharmaceutical cartons using sequence modeling techniques to map visual inputs to structured text outputs, enabling real-time inference (<3 ms) and meeting pharmaceutical packaging standard compliance.',
-        'Contributed to developing OCR pipelines using CNN-based models and computer vision techniques for extracting text from industrial images, improving accuracy from 49% to 98%.',
-        'Converted CNN models to ONNX format for cross-platform deployment, improving compatibility and performance.',
-        'Optimized CNN models with TensorRT, reducing inference time to 10 ms.',
+        'Built an OCR and Data Matrix decoding system for pharmaceutical cartons, meeting packaging compliance standards in real-time line inspection.',
+        'Contributed to OCR pipelines using CNN-based models and computer vision techniques for extracting text from industrial images, improving accuracy from 49% to 98%.',
+        'Exported CNN models from PyTorch to ONNX for lightweight deployment and optimized them with TensorRT to reduce inference time (<10 ms).',
       ],
       projects: [],
     },
@@ -114,10 +113,10 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
           client: 'Hochschule Flensburg',
           href: 'https://kuenstliche-intelligenz.sh/de/hs-flensburg',
           description: [
-            'Federführend die Inbetriebnahme eines Single-Node-Servers mit 2× H100-GPUs für das On-Premise-Hosting von LLMs mit vLLM übernommen, um rund 500 gleichzeitige Nutzer bei niedriger Latenz pro Token zu bedienen.',
+            'Federführend die Inbetriebnahme eines Single-Node-Servers mit 2× H100 für das Hosting von Open-Source-LLMs (z. B. Qwen3-Coder-Next) mit vLLM übernommen, um rund 500 aktive Nutzer zu bedienen.',
             'Tensor-Parallelismus über beide GPUs angewendet, um Modelle mit sehr vielen Parametern zu hosten, die den Speicher einer einzelnen GPU übersteigen.',
-            'OpenWebUI mit Websuche und Bildgenerierung integriert und internen Teams so funktionsreichen KI-Chat- und API-Zugriff auf lokal gehostete Modelle ermöglicht.',
-            'Keycloak-Integration umgesetzt, um die Authentifizierung zu zentralisieren und unternehmensweite Zugriffskontrollen für alle lokalen KI-Dienste durchzusetzen.',
+            'Open WebUI mit Websuche, Bildgenerierung und API-Zugriff als interne KI-Plattform für lokal gehostete Modelle bereitgestellt.',
+            'Die Plattform mit Keycloak-SSO über alle lokalen KI-Dienste hinweg abgesichert.',
           ],
         },
         {
@@ -135,10 +134,10 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
           title: 'RAG-Pipeline über technische Dokumentation',
           client: 'Möller Operating Engineering GmbH',
           description: [
-            'Eine agentische RAG-Pipeline über die interne technische Dokumentation entwickelt — für ein interaktives Q&A-System mit belegten, überprüfbaren Quellenangaben.',
-            'Docling, Tesseract OCR und Vision-Language-Modelle (VLMs) kombiniert, um Text, Tabellen und komplexe Diagrammkontexte aus technischen PDFs zu extrahieren, die Standard-Parser übersehen.',
-            'Dokumenten-Chunking, Embedding und Indexierung in ChromaDB entworfen, um hochpräzise Vektor-Ähnlichkeitssuche über technische Dokumentenbestände zu ermöglichen.',
-            'Eine agentische Routing-Schicht und dynamische Evaluationsmetriken integriert, um Retrieval-Genauigkeit und Antwortverankerung zu messen und Halluzinationen zu eliminieren.',
+            'Ein agentisches RAG-System für Q&A über interne technische Dokumentation gebaut und die durchschnittliche Suchzeit von ~5 Min. auf ~8 s reduziert.',
+            'Dokumente in Qdrant mit hybrider Suche (BM25 + Dense) und Reranking indexiert — für hochpräzises Retrieval mit belegten Quellenangaben.',
+            'Dokumenten-Ingestion mit Docling, Tesseract OCR und Vision-Language-Modellen (VLMs) entwickelt, um Text, Tabellen und Diagramme aus technischen PDFs zu extrahieren.',
+            'Evaluation mit DeepEval (LLM-as-a-Judge) für Antwortkorrektheit, Faithfulness und Halluzinationsrate aufgesetzt, dazu MLflow-Tracing zum Debugging in Produktion.',
           ],
         },
         {
@@ -156,8 +155,8 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       location: 'Kötz, Deutschland',
       period: 'Apr. 2024 — Sep. 2024',
       summary: [
-        'Ein Echtzeit-Hinderniserkennungssystem für Mähroboter entwickelt, indem ein YOLO-Instanzsegmentierungsmodell trainiert und feinabgestimmt wurde — mit 90,2 % mAP und 87,9 % Recall bei kritischen Objekten.',
-        'Auf einem Raspberry Pi 5 bereitgestellt, das Modell nach NCNN konvertiert und die Inferenzzeit von 1492 ms auf 435 ms (3,4× schneller) bei unter 1 % Genauigkeitsverlust reduziert.',
+        'Ein Hinderniserkennungssystem für Mähroboter entwickelt, indem ein YOLOv8-Instanzsegmentierungsmodell trainiert und feinabgestimmt wurde — mit 90,2 % mAP und 87,9 % Recall bei kritischen Objekten.',
+        'Auf einem Raspberry Pi 5 bereitgestellt, das Modell nach NCNN konvertiert und die Inferenzzeit von 1.492 ms auf 435 ms (3,4× schneller) bei <1 % mAP-Verlust reduziert.',
       ],
       projects: [],
       testimonial: {
@@ -186,12 +185,11 @@ export const experience: Record<Locale, ExperienceEntry[]> = {
       company: 'BLUIE',
       role: 'Junior AI Engineer',
       location: 'Ahmedabad, Indien',
-      period: 'März 2021 — Juni 2022',
+      period: 'Jan. 2021 — Jul. 2022',
       summary: [
-        'Ein Hochgeschwindigkeits-OCR- und Data-Matrix-Decodierungssystem für pharmazeutische Kartons gebaut, das mit Sequenzmodellierung visuelle Eingaben auf strukturierten Text abbildet — für Echtzeit-Inferenz (<3 ms) und zur Erfüllung pharmazeutischer Verpackungsnormen.',
-        'Mitgewirkt an der Entwicklung von OCR-Pipelines mit CNN-basierten Modellen und Computer-Vision-Techniken zur Textextraktion aus Industriebildern, wodurch die Genauigkeit von 49 % auf 98 % gesteigert wurde.',
-        'CNN-Modelle für den plattformübergreifenden Einsatz nach ONNX konvertiert und so Kompatibilität und Performance verbessert.',
-        'CNN-Modelle mit TensorRT optimiert und die Inferenzzeit auf 10 ms reduziert.',
+        'Ein OCR- und Data-Matrix-Decodierungssystem für pharmazeutische Kartons gebaut, das die Verpackungsnormen bei der Echtzeit-Inline-Prüfung erfüllt.',
+        'Mitgewirkt an OCR-Pipelines mit CNN-basierten Modellen und Computer-Vision-Techniken zur Textextraktion aus Industriebildern, wodurch die Genauigkeit von 49 % auf 98 % gesteigert wurde.',
+        'CNN-Modelle von PyTorch nach ONNX exportiert für ein schlankes Deployment und mit TensorRT optimiert, um die Inferenzzeit zu senken (<10 ms).',
       ],
       projects: [],
     },

@@ -37,8 +37,8 @@ export const profile: Record<Locale, Profile> = {
     ],
     languages: [
       { name: 'English', level: 'Professional' },
-      { name: 'German', level: 'Advanced (B1–B2)' },
-      { name: 'Hindi', level: 'Native' },
+      { name: 'German', level: 'Intermediate (B2)' },
+      { name: 'Hindi', level: 'Fluent' },
       { name: 'Gujarati', level: 'Native' },
     ],
   },
@@ -71,8 +71,8 @@ export const profile: Record<Locale, Profile> = {
     ],
     languages: [
       { name: 'Englisch', level: 'Fließend' },
-      { name: 'Deutsch', level: 'Fortgeschritten (B1–B2)' },
-      { name: 'Hindi', level: 'Muttersprache' },
+      { name: 'Deutsch', level: 'Mittelstufe (B2)' },
+      { name: 'Hindi', level: 'Fließend' },
       { name: 'Gujarati', level: 'Muttersprache' },
     ],
   },
